@@ -1,0 +1,35 @@
+<div *ng-if="persons.length > 0">
+    <input type="text" class="form-control" #box (keyup)=handlePersonsFilterInputKeyEvents(box.value) placeholder="Type to filter... ">
+    <br>
+</div>
+<table style="width: 100%; " *ng-if="persons.length> 0">
+    <thead>
+        <th>&nbsp;&nbsp;&nbsp;</th>
+        <th (click)="handleSort('name')" class="sortable">Name</th>
+        <th (click)="handleSort('email')" class="sortable">E-mail</th>
+        <th (click)="handleSort('city')" class="sortable">City</th>
+    </thead>
+    <tbody>
+        <tr *ng-for="#person of persons | filter:personsFilter | orderBy:personsSort">
+            <td>
+                <button class=" btn btn-xs btn-normal " style="margin: 1px; " (click)="handleShowAddEdit(person) ">Edit</button>
+                <button class="btn btn-xs btn-danger " style="margin: 1px; " (click)="handleDelete(person) ">Delete</button>
+            </td>
+            <td>{{person.name}}</td>
+            <td>{{person.email}}</td>
+            <td>{{person.city}}</td>
+        </tr>
+    </tbody>
+</table>
+<span *ng-if="persons.length==0 "><i>No person in directory...</i></span>
+<br/>
+<br/>
+<p>
+    <button class="btn btn-xs btn-success " (click)="handleShowAddEdit(null) ">Add</button>
+</p>
+<br>
+<br>
+<persons-form [(show)]='isAddFormVisible' [width]="400" [height]="260" [edit-person] = "selectedPerson" (on-hide-form)="onAddEditFormHide($event)"></persons-form>
+<!--
+<persons-form2 [(show)]='testShow' (on-hide-form)="onHideForm($event)" [width]="400" [height]="260" [edit-person]="persons[0]"></persons-form2>
+-->

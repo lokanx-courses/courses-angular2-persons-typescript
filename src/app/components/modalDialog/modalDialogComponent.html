@@ -1,0 +1,13 @@
+<div class='ng-modal' *ng-if="show">
+    <div class='ng-modal-overlay' (click)='cancelCloseModal()'></div>
+    <div class='ng-modal-dialog' [ng-style]="{'height': height+'px', 'width': width+'px'}">
+        <div class='ng-modal-close' (click)='cancelCloseModal()' *ng-if="!!cancelLabel">X</div>
+        <div class='ng-modal-dialog-content'>
+            <ng-content></ng-content>
+        </div>
+        <div class='ng-modal-footer' style="text-align: right;">
+            <button class="btn btn-xs btn-success" (click)="applyCloseModal()">{{applyLabel||'Apply'}}</button>
+            <button class="btn btn-xs btn-normal" (click)="cancelCloseModal()"*ng-if="!!cancelLabel">{{cancelLabel}}</button>
+        </div>
+    </div>
+</div>

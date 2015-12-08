@@ -1,0 +1,29 @@
+<modal-dialog [(show)]='show' [width]="width" [height]="height" [apply-label]="'Save'" [cancel-label]="'Cancel'" (on-close-dialog)="onCloseDialog($event)" [validate]="validateData()">
+            <h3>{{person ? 'Edit Person' : 'Add Person'}}</h3>
+            <br>
+            <form name="addEditForm" style="width: 100%;">
+                <input type="hidden" ng-model="id">
+                <table style="width: 95%;">
+                    <tbody>
+                        <tr>
+                            <th style="width: 100px; text-align: right;">Name:&nbsp;&nbsp;&nbsp;</th>
+                            <td>
+                                <input type="text" [(ng-model)]="person.name" class="form-control" placeholder="Name..." style="margin-bottom: 3px;" required focus-me="isAddFormVisible">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 100px; text-align: right;">E-mail:&nbsp;&nbsp;&nbsp;</th>
+                            <th>
+                                <input name="email" type="email" [(ng-model)]="person.email" class="form-control" placeholder="E-mail..." style="margin-bottom: 3px;" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="width: 100px; text-align: right;">City:&nbsp;&nbsp;&nbsp;</th>
+                            <td>
+                                <input type="text" [(ng-model)]="person.city" class="form-control" placeholder="City..." style="margin-bottom: 3px;" required>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+</modal-dialog>
