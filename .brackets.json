@@ -1,0 +1,15 @@
+{
+    "typescript": {
+        "sources" : [
+            "src/**/*.ts"
+        ],
+        "target": "ES5",
+        "module": "commonjs",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": false,
+        "noImplicitAny": true,
+        "typescriptPath": "/Users/lokanx/.npm_global/lib/node_modules/typescript/lib"
+    }
+}
