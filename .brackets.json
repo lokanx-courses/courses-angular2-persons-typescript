@@ -1,6 +1,6 @@
 {
     "typescript": {
-        "sources" : [
+        "sources": [
             "src/**/*.ts"
         ],
         "target": "ES5",
@@ -11,5 +11,14 @@
         "removeComments": false,
         "noImplicitAny": true,
         "typescriptPath": "/Users/lokanx/.npm_global/lib/node_modules/typescript/lib"
-    }
+    },
+    "brackets-file-tree-exclude.excludeList": [
+        "/.git/",
+        "/dist/",
+        ".js/",
+        ".js.map/",
+        "/bower_components/",
+        "/node_modules/"
+    ]
+
 }
