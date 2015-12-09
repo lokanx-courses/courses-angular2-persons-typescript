@@ -9,8 +9,7 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "removeComments": false,
-        "noImplicitAny": true,
-        "typescriptPath": "/Users/lokanx/.npm_global/lib/node_modules/typescript/lib"
+        "noImplicitAny": true
     },
     "brackets-file-tree-exclude.excludeList": [
         "/.git/",
