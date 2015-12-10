@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/angular2';
+import {Injectable, Inject} from 'angular2/angular2';
 import {Person} from '../models/person';
 
 @Injectable()
