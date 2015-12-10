@@ -1,15 +1,15 @@
 import {bootstrap, Component, View, CORE_DIRECTIVES} from 'angular2/angular2';
 import {Person} from '../../models/person';
+import {WINDOW, WINDOW_PROVIDERS} from '../../services/windowService';
 import {PersonDirectoryService} from '../../services/personDirectoryService';
 import {PersonStorageService} from '../../services/personStorageService';
 import {FilterPipe} from '../../pipes/filterPipe';
 import {OrderByPipe} from '../../pipes/orderByPipe';
 import {PersonsForm} from '../../components/personsForm/personsFormComponent';
 
-
 @Component({
     selector: 'persons',
-    providers: [PersonDirectoryService, PersonStorageService]
+    providers: [PersonDirectoryService, PersonStorageService, WINDOW_PROVIDERS]
 })
 
 @View({
@@ -25,9 +25,10 @@ export class Persons {
     personDirectoryService: PersonDirectoryService = null;
     isAddFormVisible: boolean = false;
     selectedPerson: Person = null;
-
-    constructor(personDirectoryService: PersonDirectoryService) {
+    win: Window = null;
+    constructor(personDirectoryService: PersonDirectoryService, win: WINDOW) {
         this.personDirectoryService = personDirectoryService;
+        this.win = win.nativeWindow;
         var callback = (data: Person[]) => {
             this.persons = data;
         };
@@ -48,7 +49,7 @@ export class Persons {
 
 
     handleDelete(person: Person) {
-        if(confirm("Are you sure?")) {
+        if(this.win.confirm("Are you sure?")) {
             this.persons.splice(this.persons.indexOf(person), 1);
             this.personDirectoryService.persistPersons(this.persons);
         }
