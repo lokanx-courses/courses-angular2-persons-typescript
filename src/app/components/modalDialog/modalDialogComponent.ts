@@ -1,4 +1,5 @@
-import {bootstrap, Component, View, Input, Output, EventEmitter, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component, View, Input, Output, EventEmitter} from 'angular2/core';
+import {CORE_DIRECTIVES} from 'angular2/common';
 import {Person} from '../../models/person';
 
 @Component({

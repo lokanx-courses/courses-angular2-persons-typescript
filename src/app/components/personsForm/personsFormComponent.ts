@@ -1,4 +1,5 @@
-import {bootstrap, Component, View, Input, Output, EventEmitter, OnChanges, SimpleChange, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component, View, Input, Output, EventEmitter, OnChanges, SimpleChange} from 'angular2/core';
+import {CORE_DIRECTIVES} from 'angular2/common';
 import {Person} from '../../models/person';
 import {ModalDialog} from '../../components/modalDialog/modalDialogComponent';
 

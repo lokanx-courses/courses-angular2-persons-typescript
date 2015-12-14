@@ -1,4 +1,5 @@
-import {bootstrap, Component, View} from 'angular2/angular2';
+import {Component, View} from 'angular2/core';
+import {bootstrap} from 'angular2/platform/browser';
 import {Persons} from './components/persons/personsComponent';
 import {PersonStorageService} from './services/personStorageService';
 import {PersonDirectoryService} from './services/personDirectoryService';

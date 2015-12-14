@@ -1,4 +1,6 @@
-import {bootstrap, Component, View, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component, View} from 'angular2/core';
+import {CORE_DIRECTIVES} from 'angular2/common';
+
 import {Person} from '../../models/person';
 import {WINDOW, WINDOW_PROVIDERS} from '../../services/windowService';
 import {PersonDirectoryService} from '../../services/personDirectoryService';

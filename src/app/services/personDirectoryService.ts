@@ -1,4 +1,6 @@
-import {Injectable} from 'angular2/angular2';
+import {Injectable} from 'angular2/core';
+import {Observable} from 'rxjs/Observable';
+
 import {Person} from '../models/person';
 import {PersonStorageService} from '../services/personStorageService';
 
@@ -31,6 +33,8 @@ export class PersonDirectoryService {
 
         };
         this.personStorageService.loadPersonDirectory(storageCallback);
+
+        this.personStorageService.loadPersonDirectory2().subscribe((data: string) => {console.log(JSON.stringify(data))});
 
     }
 

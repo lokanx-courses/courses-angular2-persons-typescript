@@ -16,7 +16,7 @@
     "author": "Björn Sjögren",
     "license": "ISC",
     "dependencies": {
-        "angular2": "2.0.0-alpha.52",
+        "angular2": "2.0.0-alpha.53",
         "bootstrap": "3.3.6",
         "es6-shim": "^0.33.13",
         "systemjs": "0.19.2"

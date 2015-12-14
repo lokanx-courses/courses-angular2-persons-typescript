@@ -1,4 +1,4 @@
-import {Injectable, Provider} from 'angular2/angular2'
+import {Injectable, Provider} from 'angular2/core'
 import {window} from 'angular2/src/facade/browser';
 import {unimplemented} from 'angular2/src/facade/exceptions';
 
