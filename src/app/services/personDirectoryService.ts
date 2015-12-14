@@ -1,5 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
+import {map} from 'rxjs/operator/map';
+//import 'rxjs/add/operator/map';
 
 import {Person} from '../models/person';
 import {PersonStorageService} from '../services/personStorageService';
@@ -23,19 +25,18 @@ export class PersonDirectoryService {
         this.personStorageService = personStorageService;
     }
 
-    loadPersons(callback: Function) {
-        var storageCallback = (data: Person[]) => {
+    loadPersons() : Observable<any> {
+        let observer = this.personStorageService.loadPersonDirectory();
+
+        var dataMapper = (data: Person[]) => {
             if (data != null && data.length > 0) {
-                callback(data);
+                return data;
             } else {
-                callback(this.mockPersons2);
+                return this.mockPersons2;
             }
-
         };
-        this.personStorageService.loadPersonDirectory(storageCallback);
-
-        this.personStorageService.loadPersonDirectory2().subscribe((data: string) => {console.log(JSON.stringify(data))});
-
+        //return observer.map(dataMapper);
+        return map.call(observer, dataMapper);
     }
 
     persistPersons(persons: Person[]) {

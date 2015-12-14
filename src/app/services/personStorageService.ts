@@ -60,26 +60,7 @@ export class PersonStorageService {
         this.helper.store(personDirectory);
     }
 
-    loadPersonDirectory  (callback: Function) {
-        var jsonData: any = this.helper.load();
-
-            var data: Person[];
-            data = [];
-            if (jsonData != null) {
-                var i: number;
-                for(i = 0; i < jsonData.length; i++) {
-                    data[i] = new Person(
-                                    jsonData[i].id,
-                                    jsonData[i].name,
-                                    jsonData[i].email,
-                                    jsonData[i].city);
-                }
-            }
-
-            callback(data);
-        }
-
-    loadPersonDirectory2() : Observable<any> {
+    loadPersonDirectory() : Observable<any> {
         let observer = new Observable<any>((obs:any) => {
             obs.next(this.helper.load());
             obs.complete();
@@ -99,9 +80,7 @@ export class PersonStorageService {
             return result;
         };
 
-        //observer.map(peopleMapper);
-        map.call(observer, peopleMapper);
-
-        return observer;
+        //return observer.map(peopleMapper);
+        return map.call(observer, peopleMapper);
     }
 }

@@ -31,10 +31,10 @@ export class Persons {
     constructor(personDirectoryService: PersonDirectoryService, win: WINDOW) {
         this.personDirectoryService = personDirectoryService;
         this.win = win.nativeWindow;
-        var callback = (data: Person[]) => {
+        let observer = personDirectoryService.loadPersons();
+        observer.subscribe((data: Person[]) => {
             this.persons = data;
-        };
-        personDirectoryService.loadPersons(callback);
+        });
     }
 
     handlePersonsFilterInputKeyEvents(value: string) {

@@ -6,7 +6,7 @@ export class Person {
     public city:string) { }
 
 
-toJSON() {
+    toJSON() {
         return {
             'id': this.id,
             'name': this.name,
