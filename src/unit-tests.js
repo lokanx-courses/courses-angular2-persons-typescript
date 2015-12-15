@@ -10,10 +10,10 @@
         }
     });
 
-    var tests = [
+    var specs = [
         System.import('app/models/person.spec'),
         System.import('app/pipes/filterPipe.spec')
     ];
 
-    Promise.all(tests).then(window.onload).catch(console.error.bind(console));
+    Promise.all(specs).then(window.onload).catch(console.error.bind(console));
 }());
