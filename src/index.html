@@ -12,25 +12,7 @@
     <script src="../node_modules/es6-shim/es6-shim.js"></script>
     <script src="../node_modules/systemjs/dist/system.src.js"></script>
     <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script>
-        System.config({
-            packages: {
-                'app': {
-                    defaultExtension: 'js'
-                },
-                '../node_modules': {
-                    defaultExtension: 'js'
-                }
-            },
-            paths: {
-                'rxjs/add/observable/*': '../node_modules/rxjs/add/observable/*.js',
-                'rxjs/add/operator/*': '../node_modules/rxjs/add/operator/*.js',
-                'rxjs/*': '../node_modules/rxjs/*.js'
-            }
-        });
-        System.import('app/app');
-
-    </script>
+    <script src="./index.js"></script>
 
 </body>
 

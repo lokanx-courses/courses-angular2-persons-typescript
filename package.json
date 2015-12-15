@@ -10,7 +10,8 @@
     "scripts": {
         "compile": "run tsc",
         "tsc": "tsc -p src -w",
-        "start": "live-server --port=9000 --host=localhost --open=src"
+        "start": "live-server --port=9000 --host=localhost --open=src",
+        "test": "live-server --port=9000 --host=localhost --open=src/unit-tests.html"
     },
     "keywords": [],
     "author": "Björn Sjögren",
@@ -22,6 +23,7 @@
         "systemjs": "0.19.2"
     },
     "devDependencies": {
+        "jasmine-core": "2.4.1",
         "live-server": "^0.8.2",
         "typescript": "^1.6.2"
     }
