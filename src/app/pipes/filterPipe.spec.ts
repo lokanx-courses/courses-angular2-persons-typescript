@@ -1,41 +1,32 @@
 import {FilterPipe} from './filterPipe';
 import {Person} from '../models/person';
+import {PersonsMockData} from '../mockData/personsMockData';
 
 describe('FilterPipe', () => {
     let pipe:FilterPipe;
-    let mockPersons: Person[];
-    let mockPersons2: Person[];
+    let mockData: PersonsMockData;
 
     beforeEach(() => {
         pipe = new FilterPipe();
-        mockPersons = [
-            new Person(0, "Björn Sjögren", "lokanx@gmail.com", "Stockholm"),
-            new Person(1, "John Doe", "john.doe@nowhere.com", "New York"),
-            new Person(2, "Sir Väs", "sir.vas@zoo.com", "London")
-        ];
-        mockPersons2 = [
-            new Person(0, 'Donkey Kong', 'monkey@zoo.com', 'New York'),
-            new Person(1, 'Kalle Anka', 'kalle.anka@disney.com', 'Ankeborg'),
-            new Person(2, 'Björn Sjögren', 'bjorn.sjogren@hiq.se', 'Stockholm')
-        ];
+        mockData = new PersonsMockData();
     });
 
 
 
     it('Filter on "Bjö" gives one match', () => {
-        expect(pipe.transform(mockPersons, ['Bjö'])).toEqual([mockPersons[0]]);
+        expect(pipe.transform(PersonsMockData.clone(mockData.mockPersons), ['Bjö', null])).toEqual([mockData.mockPersons[0]]);
     });
 
     it('Filter on "abc123" gives zero matches', () => {
-        expect(pipe.transform(mockPersons, ['abc123'])).toEqual([]);
+        expect(pipe.transform(PersonsMockData.clone(mockData.mockPersons), ['abc123', null])).toEqual([]);
     });
 
     it('Filter on "Bjö" and field "name" gives one match', () => {
-        expect(pipe.transform(mockPersons, ['Bjö', 'name'])).toEqual([mockPersons[0]]);
+        expect(pipe.transform(PersonsMockData.clone(mockData.mockPersons), ['Bjö', 'name'])).toEqual([mockData.mockPersons[0]]);
     });
 
     it('Filter on "Bjö" and field "city" gives zero matches', () => {
-        expect(pipe.transform(mockPersons, ['abc123', 'city'])).toEqual([]);
+        expect(pipe.transform(PersonsMockData.clone(mockData.mockPersons), ['abc123', 'city'])).toEqual([]);
     });
 
 });

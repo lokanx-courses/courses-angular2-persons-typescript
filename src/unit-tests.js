@@ -12,7 +12,8 @@
 
     var specs = [
         System.import('app/models/person.spec'),
-        System.import('app/pipes/filterPipe.spec')
+        System.import('app/pipes/filterPipe.spec'),
+        System.import('app/pipes/orderByPipe.spec')
     ];
 
     Promise.all(specs).then(window.onload).catch(console.error.bind(console));

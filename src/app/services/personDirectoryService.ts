@@ -4,22 +4,18 @@ import {map} from 'rxjs/operator/map';
 //import 'rxjs/add/operator/map';
 
 import {Person} from '../models/person';
+import {PersonsMockData} from '../mockData/personsMockData';
 import {PersonStorageService} from '../services/personStorageService';
+
+
+
 
 @Injectable()
 export class PersonDirectoryService {
-    mockPersons: Person[] =  [
-        new Person(1, "Björn Sjögren", "lokanx@gmail.com", "Stockholm"),
-        new Person(1, "John Doe", "john.doe@nowhere.com", "New York"),
-        new Person(1, "Sir Väs", "sir.vas@zoo.com", "London")
-    ];
-    mockPersons2: Person[] = [
-        new Person(0, 'Donkey Kong', 'monkey@zoo.com', 'New York'),
-        new Person(1, 'Kalle Anka', 'kalle.anka@disney.com', 'Ankeborg'),
-        new Person(2, 'Björn Sjögren', 'bjorn.sjogren@hiq.se', 'Stockholm')
-    ];
+    mockData : PersonsMockData = new PersonsMockData();
 
     personStorageService: PersonStorageService = null;
+
 
     constructor(personStorageService: PersonStorageService) {
         this.personStorageService = personStorageService;
@@ -32,7 +28,7 @@ export class PersonDirectoryService {
             if (data != null && data.length > 0) {
                 return data;
             } else {
-                return this.mockPersons2;
+                return this.mockData.mockPersons2;
             }
         };
         //return observer.map(dataMapper);
