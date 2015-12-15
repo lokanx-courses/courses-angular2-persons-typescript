@@ -30,4 +30,12 @@ describe('FilterPipe', () => {
         expect(pipe.transform(mockPersons, ['abc123'])).toEqual([]);
     });
 
+    it('Filter on "Bjö" and field "name" gives one match', () => {
+        expect(pipe.transform(mockPersons, ['Bjö', 'name'])).toEqual([mockPersons[0]]);
+    });
+
+    it('Filter on "Bjö" and field "city" gives zero matches', () => {
+        expect(pipe.transform(mockPersons, ['abc123', 'city'])).toEqual([]);
+    });
+
 });
