@@ -5,7 +5,6 @@ export class Person {
     public email:string,
     public city:string) { }
 
-
     toJSON() {
         return {
             'id': this.id,
