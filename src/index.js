@@ -17,5 +17,5 @@
         }
     });
 
-    System.import('app/app');
+    System.import('app/app'); //.then(null, console.error.bind(console));;
 }());

@@ -30,9 +30,9 @@ export class ModalDialog {
     }
 
     applyCloseModal() {
-        if (this.validate()) {
+        //if (this.validate()) {
             this.show = false;
             this.onCloseEvents.next(true);
-        }
+        //}
     }
 }

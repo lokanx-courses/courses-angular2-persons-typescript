@@ -30,7 +30,7 @@ export class PersonsForm implements OnChanges {
             this.person.copyFrom(this.editPerson);
         }
     }
-
+/*
     validateData() : Function {
         return () => {
                 if (!this.person.name) {
@@ -51,9 +51,9 @@ export class PersonsForm implements OnChanges {
 
                 return true;
 
-        }
+        };
     }
-
+*/
 
     onCloseDialog(isApply: boolean) {
         if (isApply) {
