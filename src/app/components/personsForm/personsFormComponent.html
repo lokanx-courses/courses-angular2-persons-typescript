@@ -1,5 +1,4 @@
-<modal-dialog [(show)]='show' [width]="width" [height]="height" [applyLabel]="'Save'" [cancelLabel]="'Cancel'" (onCloseDialog)="onCloseDialog($event)">
-    <!--[validate]="validateData()" -->
+<modal-dialog [(show)]='show' [width]="width" [height]="height" [applyLabel]="'Save'" [cancelLabel]="'Cancel'" (onCloseDialog)="onCloseDialog($event)" [validate]="validateData">
     <h3>{{person ? 'Edit Person' : 'Add Person'}}</h3>
     <br>
     <form name="addEditForm" style="width: 100%;">

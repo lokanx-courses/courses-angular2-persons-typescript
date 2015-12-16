@@ -23,37 +23,37 @@ export class PersonsForm implements OnChanges {
 
     @Input() editPerson: Person;
 
+    validateData: Function = null;
+
     ngOnChanges(changes: {[propName: string]: SimpleChange}) {
         if (changes['editPerson']  &&  changes['editPerson'].currentValue) {
             this.person.copyFrom(changes['editPerson'].currentValue);
         } else if (this.editPerson) {
             this.person.copyFrom(this.editPerson);
         }
-    }
-/*
-    validateData() : Function {
-        return () => {
-                if (!this.person.name) {
-                    return false;
-                }
+        this.validateData = ():boolean => {
+            if (!this.person.name) {
+                window.alert("Name is missing.");
+                return false;
+            }
 
-                if (!this.person.email) {
-                    return false;
-                }
-                if (this.person.email.indexOf("@") === -1) {
-                    window.alert("Not a valid e-mail address.");
-                    return false;
-                }
+            if (!this.person.email) {
+                window.alert("E-mail is missing.");
+                return false;
+            }
+            if (this.person.email.indexOf("@") === -1) {
+                window.alert("Not a valid e-mail address.");
+                return false;
+            }
 
-                if (!this.person.city) {
-                    return false;
-                }
+            if (!this.person.city) {
+                window.alert("City is missing.");
+                return false;
+            }
 
-                return true;
-
+            return true;
         };
     }
-*/
 
     onCloseDialog(isApply: boolean) {
         if (isApply) {
