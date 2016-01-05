@@ -2,6 +2,10 @@
 
 <head>
     <title>Angular 2 QuickStart</title>
+<!--
+    <base href="http://localhost:9000/src/">
+-->
+    <script>document.write('<base href="' + document.location + '" />');</script>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="./app/styles/main.css">
     <link rel="stylesheet" href="./app/styles/modalDialog.css">
@@ -14,6 +18,7 @@
     <script src="../node_modules/systemjs/dist/system.src.js"></script>
     <script src="../node_modules/rxjs/bundles/Rx.js"></script>
     <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="../node_modules/angular2/bundles/router.dev.js"></script>
     <script src="./index.js"></script>
 
 </body>

@@ -4,6 +4,13 @@
     </div>
 
     <div style="width: 98%;">
-        <persons></persons>
+        <ul>
+            <a [routerLink]="['Persons']">[Persons]</a>
+            <a [routerLink]="['About']">[About]</a>
+            <!--
+            <a [routerLink]="['Something']">[Something]</a>
+            -->
+        </ul>
+        <router-outlet></router-outlet>
     </div>
 </div>
