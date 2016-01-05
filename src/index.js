@@ -17,5 +17,5 @@
         }
     });
 
-    System.import('app/app'); //.then(null, console.error.bind(console));;
+    System.import('app/app').then(null, console.error.bind(console));
 }());
