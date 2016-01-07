@@ -1,6 +1,6 @@
-import {Component, View} from 'angular2/core';
+import {Component, View, provide} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
-import {RouteConfig, ROUTER_PROVIDERS, ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig, ROUTER_PROVIDERS, ROUTER_DIRECTIVES, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 
 import {PersonsView} from './views/persons/personsViewComponent';
 import {AboutView} from './views/about/aboutViewComponent';
@@ -24,4 +24,9 @@ import {SomethingView} from './views/something/somethingViewComponent';
 
 class AppComponent { }
 
-bootstrap(AppComponent, [ROUTER_PROVIDERS]);
+bootstrap(
+    AppComponent,
+    [
+        ROUTER_PROVIDERS,
+        provide(LocationStrategy, {useClass: HashLocationStrategy})
+    ]);
