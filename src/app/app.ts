@@ -24,9 +24,11 @@ import {SomethingView} from './views/something/somethingViewComponent';
 
 class AppComponent { }
 
-bootstrap(
-    AppComponent,
-    [
+// Use this for hash based location strategy (old style when running in live-server mode)
+bootstrap(AppComponent, [
         ROUTER_PROVIDERS,
         provide(LocationStrategy, {useClass: HashLocationStrategy})
-    ]);
+]);
+
+// Use this for HTML5 Push location strategy
+//bootstrap(AppComponent, [ROUTER_PROVIDERS]);
